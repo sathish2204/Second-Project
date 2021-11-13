@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    {% load static %}
+    <script src="{% static 'jquery/jquery.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+    <!-- <script>
+        $(document).ready(function() {
+
+            if (window.history && window.history.pushState) {
+
+                window.history.pushState('forward', null, '');
+
+                $(window).on('popstate', function() {
+                    alert('If you click Back Button again,You will be Loggedout!');
+                });
+
+            }
+        });
+    </script> -->
+</head>
+
+
+<body style="background-image: url('/static/images/sittinat-thurdnampetch-xacUZ3zCQ74-unsplash.jpg')">
+    <ul>
+        <li><a href="select">Home</a></li>
+        <li><a href="#news">Contact</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Employee Details</a>
+            <div class="dropdown-content">
+                <a href="allemployes">All Employee Details</a>
+                <a href="update">Update</a>
+                <a href="delete">Delete</a>
+            </div>
+        </li>
+        <li><a href="#news">Logout</a></li>
+    </ul>
+    <div class="content">
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>SALARY</th>
+                <th>CITY</th>
+            </tr>
+            {% for i in obj %}
+            <tr>
+
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.age}}</td>
+                <td>{{i.salary}}</td>
+                <td>{{i.city}}</td>
+
+
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+    <!-- <img src="/static/images/pexels-veeterzy-303383.jpg" alt=""> -->
+</body>
+
+</html>

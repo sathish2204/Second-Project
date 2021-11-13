@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+    <script>
+        function getvalue() {
+
+
+            var name = 'update'
+            localStorage.setItem('Name', name);
+        }
+    </script>
+</head>
+
+<body style="background-image: url('/static/images/5767014.jpg')">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">ScoreBoard </a>
+            <div class="dropdown-content">
+                <a href="Batting">Batting</a>
+                <a href="Bowling">Bowling</a>
+                <a href="delete">Delete</a>
+            </div>
+        </li>
+        <li><a href="#news">Contact</a></li>
+
+        <li><a href="#news">Logout</a></li>
+    </ul>
+
+
+    <div class="content">
+        <form action="{% url 'update'  score=score overs=overs covers=covers team1=team1 team2=team2 striker=striker non_striker=non_striker bowler=bowler wickets=wickets %}" method="POST">
+            {% csrf_token %}
+            <div class="inner">
+                <h1>ScoreBoard</h1>
+                <label class="lbl1">Batting :</label>
+                <span class="bat1">{{team1}}</span ><span class="sp1"> (Overs :{{overs}})</span><span class="sp1"></span> <span id='spe'>(Score : </span><span style="color: black;font-size: 20px;">{{score}}/{{wickets}} - {{covers}} </span> <span id='spe'>overs)</span>
+            </div>
+
+            <div class="score">
+                <label style="margin-left: -30px;">Striker :</label>
+                <span id="p1">{{striker}} *</span>
+                <label style="padding-left: 30px;">Non Striker :</label>
+                <span id="p1">{{non_striker}}</span>
+                <br><br>
+
+                <div class="druns">
+                    <label id="lr">Runs</label>
+                    <input type="number" placeholder="Enter Runs" name="runs" id="runs">
+
+                    <label id="lr" style="padding-left: 10px;">Wickets</label>
+                    <input type="number" placeholder="Enter Wickets" name="wickets" id="runs">
+                    <br><br>
+                </div>
+                <div class="checkcon">
+                    <label for="" id="rd">Leg Bye</label>
+                    <input type="checkbox" value="leg bye" name="rc">
+                    <label for="" id="rd">Wide</label>
+                    <input type="checkbox" value="leg bye" name="rc">
+                    <label for="" id="rd">No Ball</label>
+                    <input type="checkbox" value="leg bye" name="rc">
+                    <label for="" id="rd">Over Throw</label>
+                    <input type="checkbox" value="leg bye" name="rc">
+                </div>
+
+                <div class="checkcon2" style="margin-top: 20px;">
+                    <label for="" id="rd" style="margin-left: 35px">Bold</label>
+                    <input type="checkbox" value="bold" name="rc">
+                    <label for="" id="rd">LBW</label>
+                    <input type="checkbox" value="lbw" name="rc">
+                    <label for="" id="rd">Catch</label>
+                    <input type="checkbox" value="catch" name="rc">
+                    <label for="" id="rd">Run Out</label>
+                    <input type="checkbox" value="run out" name="rc">
+                </div>
+
+                <input type="submit" name="" id="sub" value="Submit">
+
+            </div>
+
+            <div class="inner2">
+
+                <label class="lbl1">Bowling :</label>
+                <span class="bat1">{{team2}}</span>
+
+                <label class="lbl2">Bowler :</label>
+                <span class="bow1">{{bowler}} *</span>
+
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

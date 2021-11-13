@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    {% load static %}
+    <script src="{% static 'jquery/jquery.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <script src="{% static 'fontawesome/all.min.js' %}"></script>
+
+    <script>
+        $(document).ready(
+
+            function() {
+
+
+            }
+        );
+    </script>
+
+    <!-- <script>
+        $(document).ready(function() {
+
+            if (window.history && window.history.pushState) {
+
+                window.history.pushState('forward', null, '');
+
+                $(window).on('popstate', function() {
+                    alert('If you click Back Button again,You will be Loggedout!');
+                });
+
+            }
+        });
+    </script> -->
+</head>
+
+
+<body style="background-image: url('/static/images/pexels-roberto-shumski-1903702.jpg')">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">ScoreBoard </a>
+            <div class="dropdown-content">
+                <a href="Batting">Batting</a>
+                <a href="Bowling">Bowling</a>
+                <a href="delete">Delete</a>
+            </div>
+        </li>
+        <li><a href="#news">Contact</a></li>
+
+        <li><a href="#news">Logout</a></li>
+    </ul>
+
+    <div class="content">
+        <form action="delete" method="post">
+            {% csrf_token %}
+            <h2>Start Match </h2>
+            <div id="box1">
+                <label id="l1">Select Team 1</label>
+                <select name="dropdown" id="d1" value='hggh'>
+               
+        <option selected="selected"></option>
+        <option value="India" >India</option>
+        <option value="Australia" >Australia</option>
+    
+       </select>
+                <br><br><br>
+                <label id="l1">Select Team 2</label>
+                <select name="dropdown2" id="d2">
+                <option selected="selected"></option>
+        <option value="India">India</option>
+        <option value="Australia">Australia</option>
+       </select><br><br>
+                <div class="lb">
+                    <input type="checkbox" id="c1" value="c1" name="c1">
+                    <label>10 Overs</label>
+                    <input type="checkbox" id="c2" value="c2" name="c1">
+                    <label>5 Overs</label>
+                </div>
+            </div>
+
+            <input type="submit" id="b1" value="Start">
+
+        </form>
+    </div>
+
+
+</body>
+
+</html>
