@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home,name='home'),
     path('select',views.select),
-    path('update/<int:score>/<int:overs>/<str:covers>/<str:team1>/<str:team2>/<str:striker>/<str:non_striker>/<str:bowler>/<int:wickets>',views.update,name='update'),
+    path('update/<int:score>/<int:overs>/<str:covers>/<str:team1>/<str:team2>/<str:striker>/<str:non_striker>/<str:bowler>/<int:wickets>/<int:pid1>/<int:pid2>',views.update,name='update'),
     path('delete',views.delete,name='delete'),
     path('allemployes',views.allemployes),
     path('insert',views.insert),

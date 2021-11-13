@@ -37,7 +37,7 @@
 
 
     <div class="content">
-        <form action="{% url 'update'  score=score overs=overs covers=covers team1=team1 team2=team2 striker=striker non_striker=non_striker bowler=bowler wickets=wickets %}" method="POST">
+        <form action="{% url 'update'  score=score overs=overs covers=covers team1=team1 team2=team2 striker=striker non_striker=non_striker bowler=bowler wickets=wickets pid1=pid1 pid2=pid2 %}" method="POST">
             {% csrf_token %}
             <div class="inner">
                 <h1>ScoreBoard</h1>

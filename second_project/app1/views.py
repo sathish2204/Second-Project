@@ -27,10 +27,12 @@ def select(request):
     return render(request,'select.html',)
 
 
-def update(request,score,overs,covers,team1,team2,striker,non_striker,bowler,wickets):
+def update(request,score,overs,covers,team1,team2,striker,non_striker,bowler,wickets,pid1,pid2):
     
     runs = int(request.POST['runs'])
+    
     covers = round(float(covers),1)
+    
     if covers == 0.5 :
         covers = 1
     elif covers == 1.5:
@@ -56,51 +58,53 @@ def update(request,score,overs,covers,team1,team2,striker,non_striker,bowler,wic
     score += runs
 
     obj = india.objects.all()
-    s1 = obj.get(id=1)
-    s2 = obj.get(id=2)
-    p1 = s1.id
-    p2 = s2.id
+    s1 = obj.get(id=pid1)
+    s2 = obj.get(id=pid2)
+    p1 = s1.name
+    p2 = s2.name
+
+
 
 
     if runs == 1 or runs == 3 :
-        if striker == 'KL Rahul' :  
+        if striker == p1 :  
             if covers == 1 or covers == 2  or covers == 3 or covers == 4 or covers == 5 or covers == 6 or covers == 7 or covers == 8 or covers == 9 or covers == 10 :
-                striker = 'KL Rahul'
-                non_striker = 'Rohit Sharma'
+                striker = p1
+                non_striker = p2
             else:
-                striker = 'Rohit Sharma'
-                non_striker = 'KL Rahul'
-        elif striker == 'Rohit Sharma' :  
+                striker = p2
+                non_striker = p1
+        elif striker == p2 :  
             if covers == 1 or covers == 2  or covers == 3 or covers == 4 or covers == 5 or covers == 6 or covers == 7 or covers == 8 or covers == 9 or covers == 10 :
-                striker = 'Rohit Sharma'
-                non_striker = 'KL Rahul'
+                striker = p2
+                non_striker = p1
                 
             else:
-                striker = 'KL Rahul'
-                non_striker = 'Rohit Sharma'
+                striker = p1
+                non_striker = p2
                 
         
-        return render(request,'update.html',{'score':score,'overs':overs,'covers':covers,'team1':team1,'team2':team2,'striker':striker,'non_striker':non_striker,'bowler':bowler,'wickets':wickets})
+        return render(request,'update.html',{'score':score,'overs':overs,'covers':covers,'team1':team1,'team2':team2,'striker':striker,'non_striker':non_striker,'bowler':bowler,'wickets':wickets,'pid1':pid1,'pid2':pid2})
     
 
     elif runs == 2 or runs == 4 or runs == 6:
-        if striker == 'KL Rahul' :
+        if striker == p1 :
             if covers == 1 or covers == 2  or covers == 3 or covers == 4 or covers == 5 or covers == 6 or covers == 7 or covers == 8 or covers == 9 or covers == 10 :
-                striker = 'Rohit Sharma'
-                non_striker = 'KL Rahul'
+                striker = p2
+                non_striker = p1
             else:
-                striker = 'KL Rahul'
-                non_striker = 'Rohit Sharma'
-        elif striker == 'Rohit Sharma' :
+                striker = p1
+                non_striker = p2
+        elif striker == p2 :
             if covers == 1 or covers == 2  or covers == 3 or covers == 4 or covers == 5 or covers == 6 or covers == 7 or covers == 8 or covers == 9 or covers == 10 :
-                striker = 'KL Rahul'
-                non_striker = 'Rohit Sharma'
+                striker = p1
+                non_striker = p2
                 
             else:
-                striker = 'Rohit Sharma'
-                non_striker = 'KL Rahul'
+                striker = p2
+                non_striker = p1
 
-        return render(request,'update.html',{'score':score,'overs':overs,'covers':covers,'team1':team1,'team2':team2,'striker':striker,'non_striker':non_striker,'bowler':bowler,'wickets':wickets})
+        return render(request,'update.html',{'score':score,'overs':overs,'covers':covers,'team1':team1,'team2':team2,'striker':striker,'non_striker':non_striker,'bowler':bowler,'wickets':wickets,'pid1':pid1,'pid2':pid2})
 
     
 
@@ -114,6 +118,8 @@ def delete(request):
     wickets = 0
     covers = 0
     overs = 0
+    pid1 = 1
+    pid2 = 2
     bowler = 'Mitcheal Stark'
 
 
@@ -127,7 +133,7 @@ def delete(request):
     else:
         overs = 5
 
-    return render(request,'delete.html',{'team1':team1,'team2':team2,'overs':overs,'score':score,'wickets':wickets,'covers':covers,'bowler':bowler,'striker':striker,'non_striker':non_striker})
+    return render(request,'delete.html',{'team1':team1,'team2':team2,'overs':overs,'score':score,'wickets':wickets,'covers':covers,'bowler':bowler,'striker':striker,'non_striker':non_striker,'pid1':pid1,'pid2':pid2})
 
 
 
