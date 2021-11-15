@@ -17,9 +17,12 @@
             localStorage.setItem('Name', name);
         }
     </script>
+    <script src="{% static 'fontawesome/all.min.js' %}"></script>
+
 </head>
 
-<body style="background-image: url('/static/images/5767014.jpg')">
+<body style="background-image: url('/static/images/vicky-adams-gywHscPZwMM-unsplash.jpg')">
+
     <ul>
         <li><a href="#home">Home</a></li>
         <li class="dropdown">
@@ -39,64 +42,129 @@
     <div class="content">
         <form action="{% url 'update'  score=score overs=overs covers=covers team1=team1 team2=team2 striker=striker non_striker=non_striker bowler=bowler wickets=wickets pid1=pid1 pid2=pid2 %}" method="POST">
             {% csrf_token %}
-            <div class="inner">
-                <h1>ScoreBoard</h1>
-                <label class="lbl1">Batting :</label>
-                <span class="bat1">{{team1}}</span ><span class="sp1"> (Overs :{{overs}})</span><span class="sp1"></span> <span id='spe'>(Score : </span><span style="color: black;font-size: 20px;">{{score}}/{{wickets}} - {{covers}} </span> <span id='spe'>overs)</span>
-            </div>
+
 
             <div class="score">
-                <label style="margin-left: -30px;">Striker :</label>
-                <span id="p1">{{striker}} *</span>
-                <label style="padding-left: 30px;">Non Striker :</label>
-                <span id="p1">{{non_striker}}</span>
-                <br><br>
+
 
                 <div class="druns">
-                    <label id="lr">Runs</label>
-                    <input type="number" placeholder="Enter Runs" name="runs" id="runs">
-
-                    <label id="lr" style="padding-left: 10px;">Wickets</label>
-                    <input type="number" placeholder="Enter Wickets" name="wickets" id="runs">
-                    <br><br>
-                </div>
-                <div class="checkcon">
-                    <label for="" id="rd">Leg Bye</label>
+                    <label id="lr" style="margin-left: 80px;">Runs</label>
+                    <input type="text" placeholder="Enter Runs" name="runs" id="runs" autofocus value="">
+                    <br><br><br>
+                    <label for="" id="rd" style="margin-left: -45px;">Leg Bye </label>
                     <input type="checkbox" value="leg bye" name="rc">
                     <label for="" id="rd">Wide</label>
-                    <input type="checkbox" value="leg bye" name="rc">
+                    <input type="checkbox" value="wide" name="rc">
                     <label for="" id="rd">No Ball</label>
-                    <input type="checkbox" value="leg bye" name="rc">
+                    <input type="checkbox" value="no ball" name="rc">
                     <label for="" id="rd">Over Throw</label>
-                    <input type="checkbox" value="leg bye" name="rc">
+                    <input type="checkbox" value="over throw" name="rc">
+
+
+                    <br><br>
+
+
+                </div>
+                <div class="checkcon">
+
+                    <label for="" id="rd" style="margin-left: 100px;">Runs</label>
+                    <input type="checkbox" value="runs" name="wc" checked>
                 </div>
 
                 <div class="checkcon2" style="margin-top: 20px;">
-                    <label for="" id="rd" style="margin-left: 35px">Bold</label>
-                    <input type="checkbox" value="bold" name="rc">
-                    <label for="" id="rd">LBW</label>
-                    <input type="checkbox" value="lbw" name="rc">
-                    <label for="" id="rd">Catch</label>
-                    <input type="checkbox" value="catch" name="rc">
-                    <label for="" id="rd">Run Out</label>
-                    <input type="checkbox" value="run out" name="rc">
+                    <label id="lr" style="margin-left: -80px;color: chocolate;">Wicket :</label>
+                    <label for="" id="rd" style="margin-left: 10px;color: blueviolet;">Bold</label>
+                    <input type="checkbox" value="bold" name="wc">
+                    <label for="" id="rd" style="color: blueviolet;">LBW</label>
+                    <input type="checkbox" value="lbw" name="wc">
+                    <label for="" id="rd" style="color: blueviolet;">Catch</label>
+                    <input type="checkbox" value="catch" name="wc">
+                    <label for="" id="rd" style="color: blueviolet;">None</label>
+                    <input type="checkbox" value="none" name="wc" checked>
+
+                    <br><br>
+                </div>
+
+                <div class="checkcon">
+                    <label for="" id="rd" style="margin-left: -30px;color: darkgreen;">Run Out --></label>
+                    <label for="" id="rd" style="color: blueviolet;">Striker</label>
+                    <input type="checkbox" value="over throw" name="rc">
+                    <label for="" id="rd" style="color: blueviolet;">Non Striker</label>
+                    <input type="checkbox" value="none" name="rc">
                 </div>
 
                 <input type="submit" name="" id="sub" value="Submit">
 
             </div>
 
-            <div class="inner2">
 
-                <label class="lbl1">Bowling :</label>
-                <span class="bat1">{{team2}}</span>
-
-                <label class="lbl2">Bowler :</label>
-                <span class="bow1">{{bowler}} *</span>
-
-            </div>
         </form>
     </div>
+
+
+    <div class="live">
+        <img src="/static/images/1200px-Flag_of_India.svg.png" alt="" id="img1">
+        <div class="s1" style="padding-top: 20px;margin-top: -80px;"><i class="fas fa-caret-right" style="color: red;font-size: 20px;"></i>{{striker}}</div>
+        <br>
+        <div class="s1">{{non_striker}}</div>
+
+
+        <div class="pruns">
+            <span style="font-size: 20px;font-weight: bold;">10 <span style="font-size: 13px;font-weight: bold;">10</span></span>
+        </div>
+        <div class="pruns2">
+            <span style="font-size: 20px;font-weight: bold;">10 <span style="font-size: 13px;font-weight: bold;">10</span></span>
+        </div>
+
+
+
+        <div class="scoreb">
+            <div id="op3">
+                Run Rate : 6.23
+            </div>
+            <div id="tm1">
+                <span id='op2'>{{overs}}</span>
+
+
+
+                <div id="tov">
+                    <span id='op'>{{covers}}</span>
+                    <div id="ov">
+
+                        Ind <span style="padding-left: 10px;">{{score}}-{{wickets}}</span>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="bow">
+
+                <div style="margin-left: -10px;margin-top: -25px;">{{bowler}}
+
+                    <span style="margin-left: 10px;">0-21 <span style="margin-left: 10px;font-size: 20px;">1.5</span></span>
+
+
+
+                    <div class="cove">
+
+                        <div id="ruu">1</div>
+                        <div id="ruu">0</div>
+                        <div id="ruu"></div>
+                        <div id="ruu"></div>
+                        <div id="ruu"></div>
+                        <div id="ruu">6</div>
+                    </div>
+
+                </div>
+
+                <div id="imgg">
+                    <img src="/static/images/Flag-Australia.jpg" alt="" id="img2">
+                </div>
+
+            </div>
 </body>
 
 </html>

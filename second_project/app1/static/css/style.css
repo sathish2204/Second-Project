@@ -1,5 +1,5 @@
     body {
-        background-image: url('/static/images/3846574.jpg');
+        background-image: url('/static/images/5494.jpg');
         image-resolution: 500px 500px;
         background-size: cover;
     }
@@ -40,7 +40,7 @@
     .hone {
         padding-left: 150px;
         padding-top: 40px;
-        color: black;
+        color: green;
     }
     
     h3 {
@@ -55,7 +55,7 @@
     
     .b1 {
         border-radius: 50px;
-        background-color: black;
+        background-color: rgb(243, 3, 3);
         width: 120px;
         height: 35px;
         margin-top: 45px;
@@ -76,11 +76,13 @@
     #i1 {
         margin-left: 30px;
         font-size: 30px;
+        color: deeppink;
     }
     
     #i2 {
         margin-left: 30px;
         font-size: 30px;
+        color: deeppink;
     }
     
     ul {
@@ -151,12 +153,12 @@
     }
     
     .content {
-        width: 650px;
-        height: 550px;
+        width: 580px;
+        height: 400px;
         background-color: white;
         margin-left: 350px;
-        margin-top: 20px;
         border-radius: 50px;
+        margin-top: 50px;
     }
     
     .content h2 {
@@ -240,7 +242,7 @@
     
     .lb {
         margin-left: 180px;
-        margin-top: 20px;
+        margin-top: 70px;
     }
     
     .lb input {
@@ -255,7 +257,7 @@
     }
     
     .inner {
-        padding-left: -10px;
+        padding-left: 50px;
         padding-top: 20px;
     }
     
@@ -278,7 +280,7 @@
     }
     
     .inner2 {
-        padding-left: 30px;
+        padding-left: 70px;
         padding-top: 30px;
     }
     
@@ -301,7 +303,7 @@
     }
     
     .score {
-        padding-left: 80px;
+        padding-left: 120px;
         padding-top: 40px;
     }
     
@@ -337,8 +339,9 @@
     
     #lr {
         font-size: 30px;
-        color: goldenrod;
+        color: rgb(12, 190, 6);
         font-weight: bold;
+        margin-left: 150px;
     }
     
     .druns {
@@ -359,7 +362,7 @@
     }
     
     .checkcon {
-        margin-top: 20px;
+        padding-top: 10px;
     }
     
     #sub {
@@ -367,8 +370,8 @@
         height: 30px;
         border-radius: 50px;
         border: black solid 2px;
-        margin-top: 50px;
-        margin-left: 180px;
+        margin-top: 40px;
+        margin-left: 115px;
         background-color: rgb(43, 40, 40);
         color: white;
         font-size: 20px;
@@ -378,6 +381,7 @@
         color: rgb(245, 74, 12);
         font-size: 25px;
         font-weight: bold;
+        margin-left: 20px;
     }
     
     .lbl2 {
@@ -391,4 +395,136 @@
         color: black;
         font-size: 25px;
         font-weight: bold;
+    }
+    
+    .live {
+        background-color: whitesmoke;
+        height: 100px;
+        margin-top: 30px;
+        border-radius: 50px;
+    }
+    
+    .s1 {
+        font-weight: bold;
+        font-size: 20px;
+        margin-left: 230px;
+    }
+    
+    #img1 {
+        width: 80px;
+        height: 60px;
+        margin-left: 80px;
+        margin-top: 20px;
+    }
+    
+    #img2 {
+        width: 80px;
+        height: 60px;
+        margin-left: 300px;
+    }
+    
+    .pruns {
+        color: black;
+        margin-left: 430px;
+        margin-top: -65px;
+    }
+    
+    .pruns2 {
+        color: black;
+        margin-left: 430px;
+        margin-top: 20px;
+    }
+    
+    .scoreb {
+        width: 320px;
+        height: 100px;
+        background-color: rgba(4, 5, 43, 0.877);
+        border-radius: 50px;
+        margin-top: -88px;
+        margin-left: 520px;
+    }
+    
+    #tm1 {
+        width: 312px;
+        height: 50px;
+        background-color: rgba(80, 7, 163, 0.877);
+        border-radius: 50px;
+        padding-top: 15px;
+        margin-top: -95px;
+    }
+    
+    #tov {
+        width: 250px;
+        height: 50px;
+        background-color: yellow;
+        border-radius: 50px;
+        margin-top: -49px;
+        padding-top: 15px;
+    }
+    
+    #ov {
+        width: 145px;
+        height: 46px;
+        background-color: red;
+        border-radius: 50px;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        padding-left: 30px;
+        margin-top: -50px;
+        padding-top: 20px;
+    }
+    
+    #op {
+        padding-left: 180px;
+        color: black;
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 30px;
+    }
+    
+    #op2 {
+        padding-left: 260px;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 30px;
+    }
+    
+    #op3 {
+        padding-left: 95px;
+        padding-top: 72px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    
+    .bow {
+        margin-left: 380px;
+        color: black;
+        font-size: 23px;
+        font-weight: bold;
+        margin-top: -40px;
+        width: 250px;
+    }
+    
+    #ruu {
+        border: black 1px solid;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        margin-left: 10px;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        background-color: rgba(15, 1, 1, 0.89);
+    }
+    
+    .cove {
+        display: inline-flex;
+        margin-top: 10px;
+    }
+    
+    #imgg {
+        margin-top: -65px;
     }
