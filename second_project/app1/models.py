@@ -33,13 +33,13 @@ class team2_batting(models.Model):
 
 class team1_bowling(models.Model):
     name = models.CharField(max_length=50)
-    overs = models.IntegerField()
+    overs = models.FloatField()
     runs = models.IntegerField()
     wickets = models.IntegerField()
 
 class team2_bowling(models.Model):
     name = models.CharField(max_length=50)
-    overs = models.IntegerField()
+    overs = models.FloatField()
     runs = models.IntegerField()
     wickets = models.IntegerField()
     

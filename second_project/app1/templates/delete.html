@@ -40,7 +40,8 @@
 
 
     <div class="content">
-        <form action="{% url 'update'  score=score overs=overs covers=covers team1=team1 team2=team2 striker=striker non_striker=non_striker bowler=bowler wickets=wickets pid1=pid1 pid2=pid2 %}" method="POST">
+        <form action="{% url 'update'  score=score overs=overs covers=covers team1=team1 team2=team2 striker=striker non_striker=non_striker bowler=bowler wickets=wickets pid1=pid1 pid2=pid2 gone=gone stbow=stbow op1b=op1b op2b=op2b op1r=op1r op2r=op2r b1=b1 b2=b2 b3=b3 b4=b4 b5=b5 b6=b6  sp1=sp1 sp2=sp2 bowo=bowo bowr=bowr boww=boww %}"
+            method="POST">
             {% csrf_token %}
 
 
@@ -68,7 +69,7 @@
                 <div class="checkcon">
 
                     <label for="" id="rd" style="margin-left: 100px;">Runs</label>
-                    <input type="checkbox" value="runs" name="wc" checked>
+                    <input type="checkbox" value="runs" name="rc" checked>
                 </div>
 
                 <div class="checkcon2" style="margin-top: 20px;">
@@ -88,9 +89,9 @@
                 <div class="checkcon">
                     <label for="" id="rd" style="margin-left: -30px;color: darkgreen;">Run Out --></label>
                     <label for="" id="rd" style="color: blueviolet;">Striker</label>
-                    <input type="checkbox" value="over throw" name="rc">
+                    <input type="checkbox" value="striker" name="wc">
                     <label for="" id="rd" style="color: blueviolet;">Non Striker</label>
-                    <input type="checkbox" value="none" name="rc">
+                    <input type="checkbox" value="non striker" name="wc">
                 </div>
 
                 <input type="submit" name="" id="sub" value="Submit">
@@ -104,23 +105,23 @@
 
     <div class="live">
         <img src="/static/images/1200px-Flag_of_India.svg.png" alt="" id="img1">
-        <div class="s1" style="padding-top: 20px;margin-top: -80px;"><i class="fas fa-caret-right" style="color: red;font-size: 20px;"></i>{{striker}}</div>
+        <div class="s1" style="padding-top: 20px;margin-top: -80px;"><span style="color: red;font-size: 20px;font-weight: bolder;">{{sp1}}</span> {{striker}}</div>
         <br>
-        <div class="s1">{{non_striker}}</div>
+        <div class="s1"><span style="color: red;font-size: 20px;font-weight: bolder;">{{sp2}}</span> {{non_striker}}</div>
 
 
         <div class="pruns">
-            <span style="font-size: 20px;font-weight: bold;">10 <span style="font-size: 13px;font-weight: bold;">10</span></span>
+            <span style="font-size: 20px;font-weight: bold;">{{op1r}} <span style="font-size: 13px;font-weight: bold;">{{op1b}}</span></span>
         </div>
         <div class="pruns2">
-            <span style="font-size: 20px;font-weight: bold;">10 <span style="font-size: 13px;font-weight: bold;">10</span></span>
+            <span style="font-size: 20px;font-weight: bold;">{{op2r}} <span style="font-size: 13px;font-weight: bold;">{{op2b}}</span></span>
         </div>
 
 
 
         <div class="scoreb">
             <div id="op3">
-                Run Rate : 6.23
+                Ind Batting
             </div>
             <div id="tm1">
                 <span id='op2'>{{overs}}</span>
@@ -144,18 +145,18 @@
 
                 <div style="margin-left: -10px;margin-top: -25px;">{{bowler}}
 
-                    <span style="margin-left: 10px;">0-21 <span style="margin-left: 10px;font-size: 20px;">1.5</span></span>
+                    <span style="margin-left: 10px;">{{boww}}-{{bowr}} <span style="margin-left: 10px;font-size: 20px;">{{bowo}}</span></span>
 
 
 
                     <div class="cove">
 
-                        <div id="ruu">1</div>
-                        <div id="ruu">0</div>
-                        <div id="ruu"></div>
-                        <div id="ruu"></div>
-                        <div id="ruu"></div>
-                        <div id="ruu">6</div>
+                        <div id="ruu">{{b1}}</div>
+                        <div id="ruu">{{b2}}</div>
+                        <div id="ruu">{{b3}}</div>
+                        <div id="ruu">{{b4}}</div>
+                        <div id="ruu">{{b5}}</div>
+                        <div id="ruu">{{b6}}</div>
                     </div>
 
                 </div>
