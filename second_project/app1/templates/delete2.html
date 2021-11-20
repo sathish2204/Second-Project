@@ -24,37 +24,23 @@
 <body style="background-image: url('/static/images/vicky-adams-gywHscPZwMM-unsplash.jpg')">
 
     <ul>
+        <li><a href="#home">Home</a></li>
         <li class="dropdown">
-            <a href="#" class="dropbtn">Teams </a>
-            <div class="dropdown-content">
-                <a href="Batting">India</a>
-                <a href="Bowling">Australia</a>
-
-            </div>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropbtn">India </a>
+            <a href="#" class="dropbtn">ScoreBoard </a>
             <div class="dropdown-content">
                 <a href="Batting">Batting</a>
                 <a href="Bowling">Bowling</a>
-
+                <a href="delete">Delete</a>
             </div>
         </li>
-        <li class="dropdown">
-            <a href="#" class="dropbtn">Australia </a>
-            <div class="dropdown-content">
-                <a href="Batting">Batting</a>
-                <a href="Bowling">Bowling</a>
-
-            </div>
-        </li>
+        <li><a href="#news">Contact</a></li>
 
         <li><a href="#news">Logout</a></li>
     </ul>
 
 
     <div class="content">
-        <form action="{% url 'update'  score=score overs=overs covers=covers team1=team1 team2=team2 striker=striker non_striker=non_striker bowler=bowler wickets=wickets pid1=pid1 pid2=pid2 gone=gone stbow=stbow op1b=op1b op2b=op2b op1r=op1r op2r=op2r b1=b1 b2=b2 b3=b3 b4=b4 b5=b5 b6=b6  sp1=sp1 sp2=sp2 bowo=bowo bowr=bowr boww=boww %}"
+        <form action="{% url 'update2'  score=score overs=overs covers=covers team1=team1 team2=team2 striker=striker non_striker=non_striker bowler=bowler wickets=wickets pid1=pid1 pid2=pid2 gone=gone stbow=stbow op1b=op1b op2b=op2b op1r=op1r op2r=op2r b1=b1 b2=b2 b3=b3 b4=b4 b5=b5 b6=b6  sp1=sp1 sp2=sp2 bowo=bowo bowr=bowr boww=boww %}"
             method="POST">
             {% csrf_token %}
 
@@ -118,7 +104,7 @@
 
 
     <div class="live">
-        <img src="/static/images/1200px-Flag_of_India.svg.png" alt="" id="img1">
+        <img src="/static/images/Flag-Australia.jpg" alt="" id="img1">
         <div class="s1" style="padding-top: 20px;margin-top: -80px;"><span style="color: red;font-size: 20px;font-weight: bolder;">{{sp1}}</span> {{striker}}</div>
         <br>
         <div class="s1"><span style="color: red;font-size: 20px;font-weight: bolder;">{{sp2}}</span> {{non_striker}}</div>
@@ -135,7 +121,7 @@
 
         <div class="scoreb">
             <div id="op3">
-                Ind Batting
+                Aus Batting
             </div>
             <div id="tm1">
                 <span id='op2'>{{overs}}</span>
@@ -176,7 +162,7 @@
                 </div>
 
                 <div id="imgg">
-                    <img src="/static/images/Flag-Australia.jpg" alt="" id="img2">
+                    <img src="/static/images/1200px-Flag_of_India.svg.png" alt="" id="img2">
                 </div>
 
             </div>
