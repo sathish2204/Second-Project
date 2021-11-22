@@ -33,9 +33,7 @@ def select(request):
 
 def update(request,score,overs,covers,team1,team2,striker,non_striker,bowler,wickets,pid1,pid2,gone,stbow,op1b,op2b,op1r,op2r,b1,b2,b3,b4,b5,b6,sp1,sp2,bowo,bowr,boww ):
     
-    if team1 =='india':
-        if covers == overs:
-            return render(request,'delete.html',{'team1':team1,'team2':team2,'overs':overs,'score':score,'wickets':wickets,'covers':covers,'bowler':bowler,'striker':striker,'non_striker':non_striker,'pid1':pid1,'pid2':pid2,'gone':gone,'stbow':stbow,'op1r':op1r,'op2r':op2r,'op1b':op1b,'op2b':op2b,'b1':b1,'b2':b2,'b3':b3,'b4':b4,'b5':b5,'b6':b6,'sp1':sp1,'sp2':sp2,'bowo':bowo,'bowr':bowr,'boww':boww })
+    
         
         obj = india.objects.all()
         obtab = team2_bowling.objects.all()
@@ -43,14 +41,6 @@ def update(request,score,overs,covers,team1,team2,striker,non_striker,bowler,wic
         s2 = obj.get(id=pid2)
         p1 = s1.name
         p2 = s2.name
-        
-
-
-        
-        
-        
-
-        
         
         if  request.POST['runs'] == '':
             runs= 0
@@ -722,7 +712,7 @@ def update(request,score,overs,covers,team1,team2,striker,non_striker,bowler,wic
                 gone += 1
                 pid2 = gone
                 ob2 = obt1ba.get(id=pid2)
-                striker = ob2.name
+                non_striker = ob2.name
                 op2b = 0
                 op2r = 0
             
@@ -953,7 +943,7 @@ def update(request,score,overs,covers,team1,team2,striker,non_striker,bowler,wic
 def update2(request,score,overs,covers,team1,team2,striker,non_striker,bowler,wickets,pid1,pid2,gone,stbow,op1b,op2b,op1r,op2r,b1,b2,b3,b4,b5,b6,sp1,sp2,bowo,bowr,boww ):
     if team1 =='australia':
         if covers == overs:
-            return render(request,'delete2.html',{'team1':team1,'team2':team2,'overs':overs,'score':score,'wickets':wickets,'covers':covers,'bowler':bowler,'striker':striker,'non_striker':non_striker,'pid1':pid1,'pid2':pid2,'gone':gone,'stbow':stbow,'op1r':op1r,'op2r':op2r,'op1b':op1b,'op2b':op2b,'b1':b1,'b2':b2,'b3':b3,'b4':b4,'b5':b5,'b6':b6,'sp1':sp1,'sp2':sp2,'bowo':bowo,'bowr':bowr,'boww':boww })
+            return render(request,'delete.html',{'team1':team1,'team2':team2,'overs':overs,'score':score,'wickets':wickets,'covers':covers,'bowler':bowler,'striker':striker,'non_striker':non_striker,'pid1':pid1,'pid2':pid2,'gone':gone,'stbow':stbow,'op1r':op1r,'op2r':op2r,'op1b':op1b,'op2b':op2b,'b1':b1,'b2':b2,'b3':b3,'b4':b4,'b5':b5,'b6':b6,'sp1':sp1,'sp2':sp2,'bowo':bowo,'bowr':bowr,'boww':boww })
         
         obj = australia.objects.all()
         obtab = team1_bowling.objects.all()
@@ -1991,7 +1981,7 @@ def delete(request):
 
 
 
-        tempbo  = obt2bo.get(id = stbow)
+        tempbo  = obt1bo.get(id = stbow)
         bowo = round(round(tempbo.overs,1),1)
         bowr = tempbo.runs
         boww = tempbo.wickets
@@ -2005,7 +1995,7 @@ def delete(request):
 
 
         
-        ob2 =australia.objects.all()
+        ob2 =india.objects.all()
         temp = ob2.get(id=7)
         bowler = temp.name
         
@@ -2020,13 +2010,313 @@ def delete(request):
 
 
 
-def allemployes(request):
-
-    obj = employe.objects.all()
-    return render(request,'allemployes.html',{'obj':obj})
 
 
-def insert(request):
+def india_batting(request):
 
-    ob = employe()
-    return render(request,'insert.html')
+    obj = team1_batting.objects.all()
+    return render(request,'india_batting.html',{'obj':obj})
+
+def india_bowling(request):
+    obj = team1_bowling.objects.all()
+    return render(request,'india_bowling.html',{'obj':obj})
+
+def australia_batting(request):
+    obj = team2_batting.objects.all()
+    return render(request,'australia_batting.html',{'obj':obj})
+
+def australia_bowling(request):
+    obj = team2_bowling.objects.all()
+    return render(request,'australia_bowling.html',{'obj':obj})
+
+def taustralia(request):
+    obj = australia.objects.all()
+    return render(request,'australia.html',{'obj':obj})
+
+def tindia(request):
+    obj = india.objects.all()
+    return render(request,'india.html',{'obj':obj})
+
+
+
+def check(request):
+    team1 = 'australia'
+    team2 = 'india'
+    if team1 == 'india':
+        obj = india.objects.all()
+        s1 = obj.get(id=1)
+        s2 = obj.get(id=2)
+        striker = s1.name
+        non_striker = s2.name
+        score = 0
+        wickets = 0
+        covers = 0
+        overs = 0
+        pid1 = 1
+        pid2 = 2
+        gone = 2
+        obt1ba = team1_batting.objects.all()
+        obt2ba = team2_batting.objects.all()
+
+        obt1bo = team1_bowling.objects.all()
+        obt2bo = team2_bowling.objects.all()
+
+
+        obp1 = obt1ba.get(id=pid1)
+        obp2 = obt1ba.get(id=pid2)
+
+        op1r = obp1.runs
+        op2r = obp2.runs
+
+        op1b = obp1.balls
+        op2b = obp2.balls
+
+        stbow = 7
+
+        b1 = ' '
+        b2 = ' '
+        b3 = ' '
+        b4 = ' '
+        b5 = ' '
+        b6 = ' '
+    
+
+        sp1 = '*'
+        sp2 = ' '
+
+
+
+
+        tempbo  = obt2bo.get(id = stbow)
+        bowo = round(round(tempbo.overs,1),1)
+        bowr = tempbo.runs
+        boww = tempbo.wickets
+    
+
+    
+
+    
+    
+        
+
+
+        ob2 =australia.objects.all()
+        temp = ob2.get(id=7)
+        bowler = temp.name
+        
+           
+        
+
+        return render(request,'delete.html',{'team1':team1,'team2':team2,'overs':overs,'score':score,'wickets':wickets,'covers':covers,'bowler':bowler,'striker':striker,'non_striker':non_striker,'pid1':pid1,'pid2':pid2,'gone':gone,'stbow':stbow,'op1r':op1r,'op2r':op2r,'op1b':op1b,'op2b':op2b,'b1':b1,'b2':b2,'b3':b3,'b4':b4,'b5':b5,'b6':b6,'sp1':sp1,'sp2':sp2,'bowo':bowo,'bowr':bowr,'boww':boww })
+
+    
+
+    if team1 == 'australia':
+        obj = australia.objects.all()
+        s1 = obj.get(id=1)
+        s2 = obj.get(id=2)
+        striker = s1.name
+        non_striker = s2.name
+        score = 0
+        wickets = 0
+        covers = 0
+        overs = 2
+        pid1 = 1
+        pid2 = 2
+        gone = 2
+        obt1ba = team1_batting.objects.all()
+        obt2ba = team2_batting.objects.all()
+
+        obt1bo = team1_bowling.objects.all()
+        obt2bo = team2_bowling.objects.all()
+
+
+        obp1 = obt1ba.get(id=pid1)
+        obp2 = obt1ba.get(id=pid2)
+
+        op1r = obp1.runs
+        op2r = obp2.runs
+
+        op1b = obp1.balls
+        op2b = obp2.balls
+
+        stbow = 7
+
+        b1 = ' '
+        b2 = ' '
+        b3 = ' '
+        b4 = ' '
+        b5 = ' '
+        b6 = ' '
+    
+
+        sp1 = '*'
+        sp2 = ' '
+
+
+
+
+        tempbo  = obt2bo.get(id = stbow)
+        bowo = round(round(tempbo.overs,1),1)
+        bowr = tempbo.runs
+        boww = tempbo.wickets
+    
+
+    
+
+    
+    
+        
+
+
+        
+        ob2 =australia.objects.all()
+        temp = ob2.get(id=7)
+        bowler = temp.name
+        
+        
+        
+
+        return render(request,'delete2.html',{'team1':team1,'team2':team2,'overs':overs,'score':score,'wickets':wickets,'covers':covers,'bowler':bowler,'striker':striker,'non_striker':non_striker,'pid1':pid1,'pid2':pid2,'gone':gone,'stbow':stbow,'op1r':op1r,'op2r':op2r,'op1b':op1b,'op2b':op2b,'b1':b1,'b2':b2,'b3':b3,'b4':b4,'b5':b5,'b6':b6,'sp1':sp1,'sp2':sp2,'bowo':bowo,'bowr':bowr,'boww':boww })
+
+
+def check2(request):
+    team1 = 'india'
+    team2 = 'australia'
+    if team1 == 'india':
+        obj = india.objects.all()
+        s1 = obj.get(id=1)
+        s2 = obj.get(id=2)
+        striker = s1.name
+        non_striker = s2.name
+        score = 0
+        wickets = 0
+        covers = 0
+        overs = 2
+        pid1 = 1
+        pid2 = 2
+        gone = 2
+        obt1ba = team1_batting.objects.all()
+        obt2ba = team2_batting.objects.all()
+
+        obt1bo = team1_bowling.objects.all()
+        obt2bo = team2_bowling.objects.all()
+
+
+        obp1 = obt1ba.get(id=pid1)
+        obp2 = obt1ba.get(id=pid2)
+
+        op1r = obp1.runs
+        op2r = obp2.runs
+
+        op1b = obp1.balls
+        op2b = obp2.balls
+
+        stbow = 7
+
+        b1 = ' '
+        b2 = ' '
+        b3 = ' '
+        b4 = ' '
+        b5 = ' '
+        b6 = ' '
+    
+
+        sp1 = '*'
+        sp2 = ' '
+
+
+
+
+        tempbo  = obt2bo.get(id = stbow)
+        bowo = round(round(tempbo.overs,1),1)
+        bowr = tempbo.runs
+        boww = tempbo.wickets
+    
+
+    
+
+    
+    
+        
+
+
+        ob2 =australia.objects.all()
+        temp = ob2.get(id=7)
+        bowler = temp.name
+        
+           
+        
+
+        return render(request,'delete.html',{'team1':team1,'team2':team2,'overs':overs,'score':score,'wickets':wickets,'covers':covers,'bowler':bowler,'striker':striker,'non_striker':non_striker,'pid1':pid1,'pid2':pid2,'gone':gone,'stbow':stbow,'op1r':op1r,'op2r':op2r,'op1b':op1b,'op2b':op2b,'b1':b1,'b2':b2,'b3':b3,'b4':b4,'b5':b5,'b6':b6,'sp1':sp1,'sp2':sp2,'bowo':bowo,'bowr':bowr,'boww':boww })
+
+    
+
+    if team1 == 'australia':
+        obj = australia.objects.all()
+        s1 = obj.get(id=1)
+        s2 = obj.get(id=2)
+        striker = s1.name
+        non_striker = s2.name
+        score = 0
+        wickets = 0
+        covers = 0
+        overs = 0
+        pid1 = 1
+        pid2 = 2
+        gone = 2
+        obt1ba = team1_batting.objects.all()
+        obt2ba = team2_batting.objects.all()
+
+        obt1bo = team1_bowling.objects.all()
+        obt2bo = team2_bowling.objects.all()
+
+
+        obp1 = obt1ba.get(id=pid1)
+        obp2 = obt1ba.get(id=pid2)
+
+        op1r = obp1.runs
+        op2r = obp2.runs
+
+        op1b = obp1.balls
+        op2b = obp2.balls
+
+        stbow = 7
+
+        b1 = ' '
+        b2 = ' '
+        b3 = ' '
+        b4 = ' '
+        b5 = ' '
+        b6 = ' '
+    
+
+        sp1 = '*'
+        sp2 = ' '
+
+
+
+
+        tempbo  = obt2bo.get(id = stbow)
+        bowo = round(round(tempbo.overs,1),1)
+        bowr = tempbo.runs
+        boww = tempbo.wickets
+    
+
+    
+
+    
+    
+        
+
+
+        
+        ob2 =australia.objects.all()
+        temp = ob2.get(id=7)
+        bowler = temp.name
+        
+        
+        
+
+        return render(request,'delete2.html',{'team1':team1,'team2':team2,'overs':overs,'score':score,'wickets':wickets,'covers':covers,'bowler':bowler,'striker':striker,'non_striker':non_striker,'pid1':pid1,'pid2':pid2,'gone':gone,'stbow':stbow,'op1r':op1r,'op2r':op2r,'op1b':op1b,'op2b':op2b,'b1':b1,'b2':b2,'b3':b3,'b4':b4,'b5':b5,'b6':b6,'sp1':sp1,'sp2':sp2,'bowo':bowo,'bowr':bowr,'boww':boww })
+

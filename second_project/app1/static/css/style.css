@@ -156,7 +156,7 @@
         width: 580px;
         height: 400px;
         background-color: white;
-        margin-left: 350px;
+        margin-left: 380px;
         border-radius: 50px;
         margin-top: 50px;
     }
@@ -206,7 +206,7 @@
     }
     
     #l1 {
-        margin-left: 100px;
+        margin-left: 50px;
         padding-top: 200px;
         color: rgb(233, 19, 179);
         font-family: serif;
@@ -215,7 +215,7 @@
     }
     
     #box1 {
-        margin-top: 100px;
+        margin-top: 10px;
     }
     
     #b1 {
@@ -223,8 +223,8 @@
         height: 30px;
         border-radius: 50px;
         font-size: 20px;
-        margin-top: 30px;
-        margin-left: 280px;
+        margin-top: 20px;
+        margin-left: 240px;
         background-color: black;
         color: white;
         cursor: pointer;
@@ -241,8 +241,8 @@
     }
     
     .lb {
-        margin-left: 180px;
-        margin-top: 70px;
+        margin-left: 150px;
+        margin-top: 20px;
     }
     
     .lb input {
@@ -527,4 +527,27 @@
     
     #imgg {
         margin-top: -65px;
+    }
+    
+    table {
+        height: 500px;
+        width: 800px;
+        background-color: white;
+        color: black;
+        text-align: center;
+    }
+    
+    .contentt {
+        margin-left: 250px;
+        margin-top: 100px;
+    }
+    
+    th {
+        color: red;
+        font-weight: bold;
+    }
+    
+    td {
+        color: rgb(9, 14, 1);
+        font-weight: bold;
     }

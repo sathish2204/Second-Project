@@ -9,14 +9,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
 
-    <script>
-        function getvalue() {
 
-
-            var name = 'update'
-            localStorage.setItem('Name', name);
-        }
-    </script>
     <script src="{% static 'fontawesome/all.min.js' %}"></script>
 
 </head>
@@ -24,23 +17,37 @@
 <body style="background-image: url('/static/images/vicky-adams-gywHscPZwMM-unsplash.jpg')">
 
     <ul>
-        <li><a href="#home">Home</a></li>
         <li class="dropdown">
-            <a href="#" class="dropbtn">ScoreBoard </a>
+            <a href="#" class="dropbtn">Teams </a>
             <div class="dropdown-content">
-                <a href="Batting">Batting</a>
-                <a href="Bowling">Bowling</a>
-                <a href="delete">Delete</a>
+                <a href="india" target='blank'>India</a>
+                <a href="australia" target='blank'>Australia</a>
+
             </div>
         </li>
-        <li><a href="#news">Contact</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">India </a>
+            <div class="dropdown-content">
+                <a href="india_batting" target='blank'>Batting</a>
+                <a href="india_bowling" target='blank'>Bowling</a>
 
-        <li><a href="#news">Logout</a></li>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Australia </a>
+            <div class="dropdown-content">
+                <a href="asutralia_batting" target='blank'>Batting</a>
+                <a href="australia_bowling" target='blank'>Bowling</a>
+
+            </div>
+        </li>
+
+        
     </ul>
 
 
     <div class="content">
-        <form action="{% url 'update'  score=score overs=overs covers=covers team1=team1 team2=team2 striker=striker non_striker=non_striker bowler=bowler wickets=wickets pid1=pid1 pid2=pid2 gone=gone stbow=stbow op1b=op1b op2b=op2b op1r=op1r op2r=op2r b1=b1 b2=b2 b3=b3 b4=b4 b5=b5 b6=b6  sp1=sp1 sp2=sp2  bowo=bowo bowr=bowr boww=boww%}"
+        <form action="{% url 'update'  score=score overs=overs covers=covers team1=team1 team2=team2 striker=striker non_striker=non_striker bowler=bowler wickets=wickets pid1=pid1 pid2=pid2 gone=gone stbow=stbow op1b=op1b op2b=op2b op1r=op1r op2r=op2r b1=b1 b2=b2 b3=b3 b4=b4 b5=b5 b6=b6  sp1=sp1 sp2=sp2 bowo=bowo bowr=bowr boww=boww %}"
             method="POST">
             {% csrf_token %}
 

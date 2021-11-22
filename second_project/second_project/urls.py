@@ -25,10 +25,16 @@ urlpatterns = [
     path('select',views.select),
     path('update/<int:score>/<int:overs>/<str:covers>/<str:team1>/<str:team2>/<str:striker>/<str:non_striker>/<str:bowler>/<int:wickets>/<int:pid1>/<int:pid2>/<int:gone>/<int:stbow>/<int:op1b>/<int:op2b>/<int:op1r>/<int:op2r>/<str:b1>/<str:b2>/<str:b3>/<str:b4>/<str:b5>/<str:b6>/<str:sp1>/<str:sp2>/<str:bowo>/<int:bowr>/<int:boww>',views.update,name='update'),
     path('delete',views.delete,name='delete'),
-    path('allemployes',views.allemployes),
-    path('insert',views.insert),
     path('update2/<int:score>/<int:overs>/<str:covers>/<str:team1>/<str:team2>/<str:striker>/<str:non_striker>/<str:bowler>/<int:wickets>/<int:pid1>/<int:pid2>/<int:gone>/<int:stbow>/<int:op1b>/<int:op2b>/<int:op1r>/<int:op2r>/<str:b1>/<str:b2>/<str:b3>/<str:b4>/<str:b5>/<str:b6>/<str:sp1>/<str:sp2>/<str:bowo>/<int:bowr>/<int:boww>',views.update2,name='update2'),
     path('delete2',views.delete,name='delete2'),
+    path('india_batting',views.india_batting,name='india_batting'),
+    path('india_bowling',views.india_bowling,name='india_bowling'),
+    path('australia_batting',views.australia_batting,name='australia_batting'),
+    path('australia_bowling',views.australia_bowling,name='australia_bowling'),
+    path('australia',views.taustralia,name='australia'),
+    path('india',views.tindia,name='india'),
+    path('check',views.check,name='check'),
+    path('check2',views.check2,name='check2'),
    
     
 ]

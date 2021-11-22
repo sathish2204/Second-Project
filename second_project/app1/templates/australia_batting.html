@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+    <script>
+        function getvalue() {
+
+
+            var name = 'update'
+            localStorage.setItem('Name', name);
+        }
+    </script>
+    <script src="{% static 'fontawesome/all.min.js' %}"></script>
+
+</head>
+
+<body style="background-image: url('/static/images/vicky-adams-gywHscPZwMM-unsplash.jpg')">
+
+   
+
+        <div class="contentt">
+
+        <table border=1>
+
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>BALLS</th>
+                <th>RUNS</th>
+                <th>BOWLER</th>
+                <th>WICKET</th>
+            </tr>
+            {% for i in obj %}
+            <tr>
+
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.balls}}</td>
+                <td>{{i.runs}}</td>
+                <td>{{i.bowler}}</td>
+                <td>{{i.wicket}}</td>
+
+
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+    
+</body>
+
+</html>
